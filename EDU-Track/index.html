@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EDU-Track | MPSPS College</title>
+  <meta name="description" content="EDU-Track: attendance, virtual ID cards, academic records and timetables for MPSPS College.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Lexend:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/idcard.css">
+  <link rel="stylesheet" href="css/landing.css">
+</head>
+<body>
+  <div class="bg-decor" aria-hidden="true"><span class="o1"></span><span class="o2"></span><span class="o3"></span></div>
+
+  <header class="topnav">
+    <a class="brand" href="index.html" aria-label="EDU-Track home">
+      <span class="brand-mark" data-icon="cap"></span>
+      <span><b>EDU-Track</b><small>MPSPS College</small></span>
+    </a>
+    <nav aria-label="Main">
+      <a class="btn btn-ghost btn-sm" href="#events">Events</a>
+      <a class="btn btn-ghost btn-sm" href="login-student.html">Student</a>
+      <a class="btn btn-ghost btn-sm" href="login-teacher.html">Teacher</a>
+      <a class="btn btn-ghost btn-sm" href="login-staff.html">Staff</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div data-stagger>
+        <h1>Your college day, organised.</h1>
+        <p class="lead">EDU-Track lets students, teachers and staff of MPSPS College mark attendance with a photo, carry a virtual ID card and check today's classes from any device.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="login-student.html"><span data-icon="user"></span>Student login</a>
+          <a class="btn btn-ghost" href="login-teacher.html"><span data-icon="teacher"></span>Teacher login</a>
+          <a class="btn btn-ghost" href="login-staff.html"><span data-icon="staff"></span>Staff login</a>
+        </div>
+        <p class="hero-link"><a href="#events">See what is happening on campus</a></p>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-card" id="sampleCard"></div>
+        <div class="float-chip glass chip-a">
+          <span class="badge-ic" data-icon="verified"></span>
+          <span>Attendance marked<small>Today, 09:12 with photo</small></span>
+        </div>
+        <div class="float-chip glass chip-b">
+          <span class="badge-ic" data-icon="chart"></span>
+          <span>84% attendance<small>Above the 75% minimum</small></span>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section" id="events">
+      <div class="events-head">
+        <div class="section-head">
+          <h2>Upcoming events and activities</h2>
+          <p>NSS, sports, cultural and committee programmes at MPSPS College.</p>
+        </div>
+        <div class="filters" id="eventFilters" role="group" aria-label="Filter events by type"></div>
+      </div>
+      <div id="nextUp"></div>
+      <div class="event-list" id="eventList" aria-live="polite"></div>
+      <div class="events-more"><button type="button" class="btn btn-ghost" id="eventMore" hidden></button></div>
+    </section>
+
+    <section class="section" id="portals">
+      <div class="section-head">
+        <h2>Choose how you log in</h2>
+        <p>Each group has its own login page and its own dashboard.</p>
+      </div>
+      <div class="portals">
+        <article class="portal glass reveal-on-scroll student" style="--i:0">
+          <div class="portal-icon" data-icon="user"></div>
+          <h3>Students</h3>
+          <p>See your ID card, attendance percentage, marks and the daily timetable for your course.</p>
+          <span class="picks">You will pick your course before logging in.</span>
+          <a class="btn btn-primary" href="login-student.html">Student login</a>
+        </article>
+        <article class="portal glass reveal-on-scroll teacher" style="--i:1">
+          <div class="portal-icon" data-icon="teacher"></div>
+          <h3>Teachers</h3>
+          <p>Mark students present or absent, review attendance and marks, and see your department's timetable.</p>
+          <span class="picks">You will pick your department before logging in.</span>
+          <a class="btn btn-white" href="login-teacher.html">Teacher login</a>
+        </article>
+        <article class="portal glass reveal-on-scroll staff" style="--i:2">
+          <div class="portal-icon" data-icon="staff"></div>
+          <h3>Staff</h3>
+          <p>Mark your own attendance, follow campus-wide attendance and look up student records.</p>
+          <span class="picks">You will pick your section before logging in.</span>
+          <a class="btn btn-ghost" href="login-staff.html">Staff login</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>What you get</h2></div>
+      <div class="features">
+        <div class="feature reveal-on-scroll" style="--i:0"><div class="fi" data-icon="camera"></div><h4>Photo attendance</h4><p>Take a photo when you log in, or from your dashboard, to mark today's attendance.</p></div>
+        <div class="feature reveal-on-scroll" style="--i:1"><div class="fi" data-icon="id"></div><h4>Virtual ID card</h4><p>Your photo, details and barcode on a card that flips, always on your phone.</p></div>
+        <div class="feature reveal-on-scroll" style="--i:2"><div class="fi" data-icon="chart"></div><h4>Attendance and marks</h4><p>Teachers mark every class. Students see subject-wise percentages and semester results.</p></div>
+        <div class="feature reveal-on-scroll" style="--i:3"><div class="fi" data-icon="clock"></div><h4>Daily timetable</h4><p>Every department has its own timetable, with the class happening now highlighted.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot">EDU-Track for MPSPS College. Session 2026-27.</footer>
+
+  <div id="toasts" aria-live="polite"></div>
+  <script src="js/ui.js"></script>
+  <script src="js/idcard.js"></script>
+  <script src="js/events.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      renderIdCard($('#sampleCard'), 'student', {
+        id: 'BCA24000', name: 'Sample Student', course: 'BCA', rollNo: 'BCA/24/000', semester: 3,
+        dob: '2005-04-12', bloodGroup: 'O+', phone: '+91 90000 00000', validUpto: '2027-06-30',
+        address: 'Sample address, India', email: 'sample@student.mpsps.example',
+        guardian: { name: 'Parent Name', relation: 'Parent', phone: '+91 90000 00001' }, photo: null,
+      }, { hint: false });
+
+      initEvents();
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { threshold: 0.15 });
+      $$('.reveal-on-scroll').forEach((el) => io.observe(el));
+    });
+  </script>
+</body>
+</html>

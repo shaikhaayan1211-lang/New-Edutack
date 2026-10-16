@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Staff login | EDU-Track</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Lexend:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/camera.css">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body data-role="staff">
+  <div class="bg-decor" aria-hidden="true"><span class="o1"></span><span class="o2"></span><span class="o3"></span></div>
+
+  <main class="login-shell">
+    <aside class="login-aside">
+      <a class="brand-row" href="index.html" aria-label="Back to EDU-Track home">
+        <span class="brand-mark" data-icon="cap"></span>
+        <span><b>EDU-Track</b><small>MPSPS College</small></span>
+      </a>
+      <div class="intro">
+        <h1>The whole campus, one screen.</h1>
+        <p class="sub">Log in to mark your attendance, follow campus-wide attendance and look up student records.</p>
+      </div>
+      <ul class="login-points">
+        <li><span class="pi" data-icon="camera"></span><span>Mark your own attendance with a photo.</span></li>
+        <li><span class="pi" data-icon="users"></span><span>See which teachers are in today and how each department is doing.</span></li>
+        <li><span class="pi" data-icon="search"></span><span>Look up any student's attendance and marks.</span></li>
+      </ul>
+      <div class="other-logins"><a href="login-student.html">Student login</a><a href="login-teacher.html">Teacher login</a><a href="index.html">Back to home</a></div>
+    </aside>
+
+    <section class="login-card glass" id="loginCard">
+      <div id="resume" class="resume" hidden></div>
+      <div class="login-head">
+        <span class="hi" data-icon="staff"></span>
+        <div><h2>Staff login</h2><p>Start by choosing your section.</p></div>
+      </div>
+
+      <form id="loginForm" novalidate>
+        <div>
+          <p class="step-label"><i>1</i><span id="groupLabel">Choose your section</span></p>
+          <div class="chips" id="chips" role="radiogroup" aria-labelledby="groupLabel">
+            <span class="hint">Loading options...</span>
+          </div>
+        </div>
+
+        <fieldset class="login-fields" id="fields" disabled>
+          <p class="step-label" style="margin:0"><i>2</i><span>Enter your details</span></p>
+          <div class="two-col">
+            <div class="field">
+              <label for="uid">Staff ID</label>
+              <input class="input" id="uid" name="id" autocomplete="username" autocapitalize="characters" spellcheck="false" placeholder="e.g. STF101">
+            </div>
+            <div class="field">
+              <label for="pw">Password</label>
+              <div class="pw-wrap">
+                <input class="input" id="pw" name="password" type="password" autocomplete="current-password" placeholder="Your password">
+                <button type="button" class="pw-toggle" id="pwToggle" aria-label="Show password">Show</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <p class="step-label" style="margin:0"><i>3</i><span>Take a photo (optional)</span></p>
+            <div id="camMount"></div>
+            <p class="hint">A photo goes on your virtual ID card and marks your attendance for today.</p>
+          </div>
+
+          <p class="form-error" id="formError" role="alert" hidden></p>
+          <button class="btn btn-primary btn-block" id="submitBtn" type="submit">Log in</button>
+        </fieldset>
+      </form>
+
+      <details class="demo" id="demo">
+        <summary>Demo accounts for testing</summary>
+        <ul id="demoList"></ul>
+        <div class="row" style="gap:.5rem"><button type="button" class="btn btn-ghost btn-sm" id="fillDemo">Fill demo details</button>
+          <button type="button" class="btn btn-ghost btn-sm" id="resetData" hidden>Reset demo data</button></div>
+      </details>
+    </section>
+  </main>
+
+  <div id="toasts" aria-live="polite"></div>
+  <script src="js/config.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/localserver.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/camera.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

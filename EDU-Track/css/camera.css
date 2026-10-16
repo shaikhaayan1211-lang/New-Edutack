@@ -1,0 +1,29 @@
+/* Photo capture widget (login pages + dashboard modal) */
+.cam { display: flex; gap: 1rem; align-items: flex-start; }
+.cam-stage {
+  position: relative; width: 132px; aspect-ratio: 3 / 4; flex: none; overflow: hidden;
+  border-radius: 18px; background: rgba(255, 255, 255, 0.08);
+  border: 1px dashed rgba(255, 255, 255, 0.38);
+  transition: border-color 0.3s, box-shadow 0.4s var(--ease);
+}
+.cam.live .cam-stage, .cam.has-photo .cam-stage { border-style: solid; border-color: var(--yellow); box-shadow: 0 0 0 4px rgba(255, 200, 32, 0.18); }
+.cam-stage video, .cam-stage img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.cam-stage video { transform: scaleX(-1); }
+.cam-stage img { animation: popIn 0.5s var(--ease) both; }
+.cam-ph { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 0.4rem; padding: 0.5rem; text-align: center; font-size: 0.75rem; color: var(--text-dim); }
+.cam-ph svg { width: 30px; height: 30px; color: var(--yellow); }
+.cam-guide { position: absolute; inset: 12% 14% 22%; border: 2px dashed rgba(255, 255, 255, 0.6); border-radius: 50%; opacity: 0; transition: opacity 0.4s; pointer-events: none; }
+.cam.live .cam-guide { opacity: 1; }
+.cam-flash { position: absolute; inset: 0; background: #fff; opacity: 0; pointer-events: none; }
+.cam-flash.go { animation: camFlash 0.55s ease; }
+@keyframes camFlash { 0% { opacity: 0.95; } 100% { opacity: 0; } }
+.cam-side { display: grid; gap: 0.6rem; min-width: 0; }
+.cam-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.cam-actions label.btn { cursor: pointer; }
+.cam-msg { font-size: 0.8rem; color: var(--text-dim); line-height: 1.45; }
+.cam-msg.err { color: var(--bad); }
+.cam.lg { flex-direction: column; align-items: center; }
+.cam.lg .cam-stage { width: min(270px, 62vw); border-radius: 22px; }
+.cam.lg .cam-side { justify-items: center; text-align: center; }
+.cam.lg .cam-actions { justify-content: center; }
+.cam-confirm { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; margin-top: 1.2rem; }

@@ -1,0 +1,74 @@
+/* Login pages (student / teacher / staff) */
+.login-shell {
+  min-height: 100vh; max-width: 1240px; margin: 0 auto;
+  padding: clamp(1rem, 3vw, 2.4rem) clamp(1rem, 4vw, 3rem);
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: clamp(1.5rem, 5vw, 4.5rem); align-items: center;
+}
+.login-aside { display: grid; gap: 2rem; align-content: center; }
+.login-aside .brand-row { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+.login-aside .brand-row .brand-mark { width: 44px; height: 44px; border-radius: 14px; display: grid; place-items: center; color: var(--navy-950); background: linear-gradient(135deg, var(--yellow), var(--yellow-deep)); }
+.login-aside .brand-row .brand-mark svg { width: 26px; height: 26px; }
+.login-aside .brand-row b { font-family: var(--font-head); font-size: 1.3rem; display: block; line-height: 1; }
+.login-aside .brand-row small { color: var(--text-dim); font-size: 0.72rem; display: block; margin-top: 3px; }
+.login-aside h1 { font-size: clamp(2rem, 4vw, 3.1rem); max-width: 15ch; }
+.login-aside .sub { color: var(--text-dim); font-size: 1.05rem; max-width: 30rem; margin-top: 1rem; line-height: 1.65; }
+.login-points { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+.login-points li { display: flex; gap: 0.9rem; align-items: flex-start; color: var(--text-dim); }
+.login-points .pi { width: 38px; height: 38px; border-radius: 12px; flex: none; display: grid; place-items: center; background: rgba(255, 255, 255, 0.12); border: 1px solid var(--glass-border); color: var(--yellow); }
+.login-points .pi svg { width: 19px; height: 19px; }
+.other-logins { font-size: 0.9rem; color: var(--text-dim); display: flex; flex-wrap: wrap; gap: 0.4rem 1.1rem; }
+.other-logins a { color: var(--text); text-decoration: underline; text-decoration-color: rgba(255, 200, 32, 0.7); text-underline-offset: 4px; transition: color 0.25s; }
+.other-logins a:hover { color: var(--yellow); }
+
+.login-card { padding: clamp(1.4rem, 3vw, 2.3rem); animation: modalIn 0.8s var(--ease) 0.15s both; transition: transform 0.6s var(--ease), opacity 0.6s; }
+.login-card.success { transform: scale(0.96) translateY(-10px); opacity: 0; }
+.login-card.shake { animation: shake 0.5s var(--ease); }
+@keyframes shake { 0%, 100% { transform: none; } 20% { transform: translateX(-8px); } 40% { transform: translateX(7px); } 60% { transform: translateX(-5px); } 80% { transform: translateX(3px); } }
+.login-head { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 1.4rem; }
+.login-head .hi { width: 50px; height: 50px; border-radius: 16px; display: grid; place-items: center; background: var(--yellow); color: var(--navy-950); }
+.login-head .hi svg { width: 26px; height: 26px; }
+.login-head p { color: var(--text-dim); font-size: 0.9rem; margin-top: 2px; }
+
+.step-label { display: flex; align-items: center; gap: 0.6rem; margin: 0 0 0.6rem; font-weight: 500; font-size: 0.9rem; }
+.step-label i { width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; background: var(--yellow); color: var(--navy-950); font-style: normal; font-size: 0.75rem; font-weight: 600; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 0.55rem; }
+.chip {
+  display: grid; gap: 1px; text-align: left; padding: 0.6rem 0.95rem; border-radius: 14px; min-width: 0;
+  background: rgba(255, 255, 255, 0.09); border: 1px solid rgba(255, 255, 255, 0.24);
+  transition: transform 0.35s var(--ease), background 0.3s, border-color 0.3s, box-shadow 0.4s var(--ease);
+}
+.chip b { font-weight: 600; font-size: 0.92rem; }
+.chip small { color: var(--text-dim); font-size: 0.72rem; }
+.chip:hover { transform: translateY(-2px); background: rgba(255, 255, 255, 0.16); }
+.chip[aria-checked="true"] { background: var(--yellow); border-color: var(--yellow); color: var(--navy-950); box-shadow: 0 10px 24px -10px rgba(255, 200, 32, 0.85); transform: translateY(-2px); }
+.chip[aria-checked="true"] small { color: rgba(6, 18, 56, 0.72); }
+
+fieldset.login-fields { border: 0; margin: 1.4rem 0 0; padding: 0; min-width: 0; display: grid; gap: 1.1rem; transition: opacity 0.6s var(--ease), filter 0.6s var(--ease); }
+fieldset.login-fields:disabled { opacity: 0.38; filter: saturate(0.6); }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+.pw-wrap { position: relative; }
+.pw-wrap .input { padding-right: 4.6rem; }
+.pw-toggle { position: absolute; right: 0.4rem; top: 50%; transform: translateY(-50%); background: rgba(255, 255, 255, 0.12); border: 0; border-radius: 10px; padding: 0.35rem 0.7rem; font-size: 0.78rem; transition: background 0.25s; }
+.pw-toggle:hover { background: rgba(255, 255, 255, 0.24); }
+.hint { font-size: 0.8rem; color: var(--text-faint); }
+.form-error { padding: 0.7rem 0.95rem; border-radius: 12px; background: rgba(255, 133, 133, 0.16); border: 1px solid rgba(255, 133, 133, 0.5); color: #ffd0d0; font-size: 0.88rem; animation: popIn 0.4s var(--ease) both; }
+.login-foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.6rem; margin-top: 1.3rem; font-size: 0.86rem; color: var(--text-dim); }
+.login-foot a { text-decoration: underline; text-decoration-color: rgba(255, 200, 32, 0.7); text-underline-offset: 4px; }
+.resume { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.6rem; padding: 0.75rem 1rem; margin-bottom: 1.2rem; border-radius: 14px; background: rgba(255, 200, 32, 0.14); border: 1px solid rgba(255, 200, 32, 0.45); font-size: 0.88rem; }
+
+details.demo { margin-top: 1.3rem; border-top: 1px solid rgba(255, 255, 255, 0.16); padding-top: 1rem; font-size: 0.85rem; color: var(--text-dim); }
+details.demo summary { cursor: pointer; font-weight: 500; color: var(--text); list-style: none; display: flex; align-items: center; gap: 0.5rem; }
+details.demo summary::-webkit-details-marker { display: none; }
+details.demo summary::after { content: '+'; margin-left: auto; color: var(--yellow); font-size: 1.2rem; transition: transform 0.35s var(--ease); }
+details.demo[open] summary::after { transform: rotate(45deg); }
+details.demo ul { margin: 0.7rem 0; padding-left: 1.1rem; display: grid; gap: 0.25rem; }
+details.demo code { background: rgba(255, 255, 255, 0.12); padding: 1px 6px; border-radius: 6px; color: var(--yellow-soft); }
+
+@media (max-width: 900px) {
+  .login-shell { grid-template-columns: 1fr; padding-top: 1.2rem; }
+  .login-aside { order: 2; gap: 1.4rem; }
+  .login-aside .intro { display: none; }
+}
+@media (max-width: 480px) { .two-col { grid-template-columns: 1fr; } }
